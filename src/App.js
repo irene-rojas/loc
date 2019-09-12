@@ -11,7 +11,7 @@ function App() {
         .then(res => {
             setResults(res.data.results[0]);
             // console.log(res.data);
-            console.log(res.data.results[0].subject[0]);
+            console.log(res.data.results[0]);
         });
     }, []);
 
@@ -23,10 +23,11 @@ function App() {
         <header>Library of Congress</header>
 
         <div>
-            <p>{results.title}</p>
+            {/* need to map */}
+            <p><strong>Title: </strong>{results.title}</p>
             <img src={results.image_url} alt={results.subject}/>
-            <p>{results.description}</p>
-            <p>Search term: {results.subject}</p>
+            <p><strong>Description: </strong>{results.description}</p>
+            <p><strong>Search term: </strong>{results.subject}</p>
         </div>
 
     </div>
