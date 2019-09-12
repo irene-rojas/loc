@@ -9,11 +9,9 @@ function App() {
     useEffect(() => {
         Axios.get(`https://www.loc.gov/search/?fo=json&q=baseball`)
         .then(res => {
-            setResults(res.data.results[0].description[0]);
+            setResults(res.data.results[0]);
             // console.log(res.data);
-            // console.log(res.data.facet_trail[0].value);
-            // console.log(res.data.results);
-            console.log(res.data.results[0].description[0]);
+            console.log(res.data.results[0].subject[0]);
         });
     }, []);
 
@@ -25,9 +23,10 @@ function App() {
         <header>Library of Congress</header>
 
         <div>
-            {/* <img src="http://www.loc.gov/static/exhibitions/baseball-americana/155_155.jpg"/> */}
-            <p>{results}</p>
-
+            <p>{results.title}</p>
+            <img src={results.image_url} alt={results.subject}/>
+            <p>{results.description}</p>
+            <p>Search term: {results.subject}</p>
         </div>
 
     </div>
