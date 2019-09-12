@@ -7,7 +7,7 @@ function App() {
     const [results, setResults] = useState([]);
 
     useEffect(() => {
-        Axios.get(`https://www.loc.gov/search/?fo=json&q=baseball`)
+        Axios.get(`https://www.loc.gov/search/?fo=json&q=cats`)
         .then(res => {
             setResults(res.data.results[0]);
             // console.log(res.data);
