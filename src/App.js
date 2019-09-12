@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
 
-        <div>Library of Congress</div>
+        <header>Library of Congress</header>
 
     </div>
   );
