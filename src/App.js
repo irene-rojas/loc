@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Axios from 'axios';
 
@@ -53,8 +53,8 @@ function App() {
                 onChange={event => {
                     event.preventDefault();
                     setFormat(event.target.value);
-                }}
-            >
+                }}>
+
                 <option>Select media format</option>
                 <option value="photos">Photos</option>
                 <option value="audio">Audio</option>
@@ -64,7 +64,6 @@ function App() {
                 <option value="manuscripts">Manuscripts</option>
                 <option value="websites">Websites</option>
                 <option value="notated-music">Printed Music</option>
-
             </select>
             <br/>
             <button>Submit</button>
