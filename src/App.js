@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Axios from 'axios';
+import Results from "./components/Results/Results";
 
 function App() {
 
@@ -8,15 +9,6 @@ function App() {
     const [query, setQuery] = useState("");
     const [format, setFormat] = useState("");
 
-    // useEffect(() => {
-    //     Axios.get(`https://www.loc.gov/photos/?q=${query}&fo=json`)
-    //     .then(res => {
-    //         setResults(res.data.results[0]);
-    //         // console.log(res.data);
-    //         console.log(res.data.results[0]);
-    //         // console.log(res.data.results.subject);
-    //     });
-    // }, []);
 
     const imageSearch = () => {
         Axios.get(`https://www.loc.gov/${format}/?q=${query}&fo=json`)
@@ -30,9 +22,9 @@ function App() {
   return (
     <div className="App">
 
-        <header>Library of Congress</header>
+        <header><h1>Library of Congress</h1></header>
 
-        <form
+        <form 
             className="searchForm"
             onSubmit={event => {
                 event.preventDefault();
@@ -54,7 +46,6 @@ function App() {
                     event.preventDefault();
                     setFormat(event.target.value);
                 }}>
-
                 <option>Select media format</option>
                 <option value="photos">Photos</option>
                 <option value="audio">Audio</option>
@@ -69,7 +60,25 @@ function App() {
             <button>Submit</button>
         </form>
 
+        <br/>
+
+        <div className="resultsDiv">
+            {results.map((result, index) => {
+                return (
+                        <Results
+                            className="singleResult" 
+                            key={index}
+                            title={result.title}
+                            description={result.description}
+                            image={result.image_url[0]}
+                        />
+                )
+            })}
+        </div>
+
+
     </div>
+    // end App
   );
 }
 
