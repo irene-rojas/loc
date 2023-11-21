@@ -37,6 +37,16 @@
         grid-template-columns: 1fr;
     }
 
+    .parallax {
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
     .header {
         /* in App */
         grid-row: 1/2;
@@ -53,6 +63,18 @@
         grid-row: 2/3;
         grid-column: 1/-1;
         /* padding-top: 10px; */
+    }
+
+    .resultsDiv {
+        /* in App */
+        grid-row: 3/4;
+        grid-column: 1/-1;
+        /* in resultsDiv */
+        display: grid;
+        grid-template-rows: repeat(5, auto);
+        grid-template-columns: 10px repeat(3, auto) 10px;
+        margin-bottom: 100px;
+        padding-top: 50px;
     }
 }
 /* end desktop */
