@@ -8,13 +8,17 @@ function App() {
     const [results, setResults] = useState([]);
     const [query, setQuery] = useState("");
     const [format, setFormat] = useState("");
+    const [loading, setLoading] = useState(false);
 
 
     const imageSearch = () => {
+        setLoading(true);
         Axios.get(`https://www.loc.gov/${format}/?q=${query}&fo=json`)
         .then(res => {
             setResults(res.data.results.slice(0,150));
             console.log(res.data.results);
+        }).then(() => {
+            setLoading(false);
         });
     };
 
@@ -73,7 +77,16 @@ function App() {
                         <option value="notated-music">Printed Music</option>
                     </select>
                     <br/>
-                    <button className="btn btn-primary">Submit</button>
+                    {loading === false &&
+                        <button className="btn btn-primary">Submit</button>}
+                    
+
+                    {loading === true &&
+                        <button class="btn btn-primary" type="button" disabled>
+                        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                        <span class="visually-hidden" role="status">Loading...</span>
+                      </button>}
+                    
                 </form>
             </div>
 
