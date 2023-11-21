@@ -8,13 +8,17 @@ function App() {
     const [results, setResults] = useState([]);
     const [query, setQuery] = useState("");
     const [format, setFormat] = useState("");
+    const [loading, setLoading] = useState(false);
 
 
     const imageSearch = () => {
+        setLoading(true);
         Axios.get(`https://www.loc.gov/${format}/?q=${query}&fo=json`)
         .then(res => {
             setResults(res.data.results.slice(0,150));
             console.log(res.data.results);
+        }).then(() => {
+            setLoading(false);
         });
     };
 
@@ -90,7 +94,14 @@ function App() {
                             />
                     )
                 })}
+
+                {loading === true && 
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>}  
             </div>
+
+            
 
         </div>
         {/* end App */}
