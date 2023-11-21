@@ -77,8 +77,6 @@ function App() {
                 </form>
             </div>
 
-            <br/>
-
             <div className="resultsDiv">
                 {results.map((result, index) => {
                     return (

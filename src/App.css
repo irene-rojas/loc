@@ -2,6 +2,10 @@
     border-top: 5px solid #fc4c02;
 }
 
+button {
+    margin: 10px;
+}
+
 /* mobile */
 @media (max-width: 768px) {
     .resultsDiv {
@@ -23,19 +27,6 @@
 
 /* start desktop */
 @media (min-width: 769px) {
-    .App {
-        text-align: center;
-        height: 100vh;
-        display: grid;
-        grid-template-rows: 175px repeat(5, 1fr);
-        /* 175px = header */
-        /* 1fr = search form div */
-        /* 1fr = result row 1 */
-        /* 1fr = result row 2 */
-        /* 1fr = result row 3 */
-        /* 1fr = result row 4 */
-        grid-template-columns: 1fr;
-    }
 
     .parallax {
         height: 100vh;
@@ -47,32 +38,43 @@
         background-size: cover;
     }
 
+    .App {
+        text-align: center;
+        height: 100vh;
+        display: grid;
+        grid-template-rows: 175px repeat(2, 1fr);
+        /* 175px = header */
+        /* 1fr = search form div */
+        /* 1fr = result div */
+        grid-template-columns: 10px 1fr 10px;
+    }
+
     .header {
         /* in App */
         grid-row: 1/2;
-        grid-column: 1/-1;
+        grid-column: 1/4;
         text-align: center;
         top: 0px;
         position: fixed;
         padding: 5px;
         width: 100%;
+        background-color: white;
     }
 
     .searchFormDiv {
         /* in App */
         grid-row: 2/3;
-        grid-column: 1/-1;
-        /* padding-top: 10px; */
+        grid-column: 1/4;
     }
 
     .resultsDiv {
         /* in App */
         grid-row: 3/4;
-        grid-column: 1/-1;
+        grid-column: 1/4;
         /* in resultsDiv */
         display: grid;
         grid-template-rows: repeat(5, auto);
-        grid-template-columns: 10px repeat(3, auto) 10px;
+        grid-template-columns: repeat(4, 1fr);
         margin-bottom: 100px;
         padding-top: 50px;
     }
