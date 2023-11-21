@@ -27,9 +27,13 @@
         text-align: center;
         height: 100vh;
         display: grid;
-        grid-template-rows: 175px 1fr;
+        grid-template-rows: 175px repeat(5, 1fr);
         /* 175px = header */
         /* 1fr = search form div */
+        /* 1fr = result row 1 */
+        /* 1fr = result row 2 */
+        /* 1fr = result row 3 */
+        /* 1fr = result row 4 */
         grid-template-columns: 1fr;
     }
 
