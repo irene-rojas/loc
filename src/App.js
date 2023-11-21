@@ -25,7 +25,7 @@ function App() {
         <div className="header">
             <h1>Search the Library of Congress</h1>
 
-            <p>Powered by the <a href="https://libraryofcongress.github.io/data-exploration/" target="_blank">LOC API</a><br />
+            <p>Powered by the <a href="https://libraryofcongress.github.io/data-exploration/" target="_blank" rel="noopener noreferrer">LOC API</a><br />
             No-frills portal to search the Library of Congress's collection.<br />
             Returns first 150 results, when available.<br />
             Search by either a specific format OR all formats.</p>
