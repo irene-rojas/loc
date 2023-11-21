@@ -4,7 +4,7 @@ import "./Results.css";
 const Results = (props) => {
     return (
 
-        <content className="resultsContent">
+        <div className="resultsContent">
 
             <strong>{props.title}</strong>
             <br/>
@@ -12,7 +12,7 @@ const Results = (props) => {
             <img src={props.image} alt={props.title} />
             <br/>
             <p><a href={props.url} target="_blank" rel="noopener noreferrer">Learn more</a></p>
-        </content>
+        </div>
 
     )
 }
