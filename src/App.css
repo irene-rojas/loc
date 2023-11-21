@@ -1,41 +1,80 @@
-.App {
-    /* margin: 0 auto; */
-    text-align: center;
-    display: grid;
-    grid-template-rows: 100px repeat(4, auto);
-    grid-template-columns: 1fr;
-    height: 100vh;
-}
-
-header {
-    grid-row: 1/2;
-    grid-column: 1/-1;
-    text-align: center;
+.header {
     border-top: 5px solid #fc4c02;
-    /* background-color: lightblue; */
 }
-
-.searchForm {
-    grid-row: 2/3;
-    grid-column: 1/-1;
-    padding: 5px;
-}
-
 
 /* mobile */
-
-.resultsDiv {
-    /* in App */
-    grid-row: 3/4;
-    grid-column: repeat(6, auto);
-    /* in resultsDiv */
-    display: grid;
-    grid-template-rows: repeat(5, auto);
-    grid-template-columns: repeat(5, auto);
+@media (max-width: 768px) {
+    .resultsDiv {
+        /* in App */
+        grid-row: 3/4;
+        grid-column: repeat(6, auto);
+        /* in resultsDiv */
+        display: grid;
+        grid-template-rows: repeat(5, auto);
+        grid-template-columns: repeat(5, auto);
+    }
+    
+    .singleResult {
+        grid-row: 1/2;
+        grid-column: 1/2;
+        border: 1px solid black;
+    }
 }
 
-.singleResult {
-    grid-row: 1/2;
-    grid-column: 1/2;
-    border: 1px solid black;
+/* start desktop */
+@media (min-width: 769px) {
+    .App {
+        text-align: center;
+        height: 100vh;
+        display: grid;
+        grid-template-rows: 175px repeat(5, 1fr);
+        /* 175px = header */
+        /* 1fr = search form div */
+        /* 1fr = result row 1 */
+        /* 1fr = result row 2 */
+        /* 1fr = result row 3 */
+        /* 1fr = result row 4 */
+        grid-template-columns: 1fr;
+    }
+
+    .parallax {
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .header {
+        /* in App */
+        grid-row: 1/2;
+        grid-column: 1/-1;
+        text-align: center;
+        top: 0px;
+        position: fixed;
+        padding: 5px;
+        width: 100%;
+    }
+
+    .searchFormDiv {
+        /* in App */
+        grid-row: 2/3;
+        grid-column: 1/-1;
+        /* padding-top: 10px; */
+    }
+
+    .resultsDiv {
+        /* in App */
+        grid-row: 3/4;
+        grid-column: 1/-1;
+        /* in resultsDiv */
+        display: grid;
+        grid-template-rows: repeat(5, auto);
+        grid-template-columns: 10px repeat(3, auto) 10px;
+        margin-bottom: 100px;
+        padding-top: 50px;
+    }
 }
+/* end desktop */

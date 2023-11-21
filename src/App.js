@@ -13,72 +13,92 @@ function App() {
     const imageSearch = () => {
         Axios.get(`https://www.loc.gov/${format}/?q=${query}&fo=json`)
         .then(res => {
-            setResults(res.data.results);
+            setResults(res.data.results.slice(0,150));
             console.log(res.data.results);
         });
     };
 
 
   return (
-    <div className="App">
+    <div className="parallax">
 
-        <header><h1>Library of Congress</h1></header>
+        <div className="App">
 
-        <form 
-            className="searchForm"
-            onSubmit={event => {
-                event.preventDefault();
-                imageSearch();
-            }}>
+            <div className="header">
+                <h1>Search the Library of Congress</h1>
 
-            <input 
-                value={query}
-                onChange={event => {
-                    event.preventDefault();
-                    setQuery(event.target.value);
-                }}
-            />
+                <p>Powered by the <a href="https://libraryofcongress.github.io/data-exploration/" target="_blank" rel="noopener noreferrer">LOC API</a><br />
+                No-frills portal to search the Library of Congress's collection.<br />
+                Returns first 150 results, when available.<br />
+                Search by either a specific format OR all formats.</p>
+            </div>
+
+            <div className="searchFormDiv">
+                <form 
+                    className="searchForm"
+                    onSubmit={event => {
+                        event.preventDefault();
+                        imageSearch();
+                    }}>
+
+                    <h2>Enter a search term:</h2>
+                    <input 
+                        className="searchTerm"
+                        title="Enter a search term"
+                        value={query}
+                        onChange={event => {
+                            event.preventDefault();
+                            setQuery(event.target.value);
+                        }}
+                    />
+                    <br/>
+
+                    <h2>Select media format</h2>
+                    <select
+                        title="Select media format"
+                        className="formatDropdown"
+                        value={format}
+                        onChange={event => {
+                            event.preventDefault();
+                            setFormat(event.target.value);
+                        }}>
+                        <option>Select media format</option>
+                        <option value="photos">Photos</option>
+                        <option value="audio">Audio</option>
+                        <option value="film-and-videos">Film/Videos</option>
+                        <option value="newspapers">Newspapers</option>
+                        <option value="maps">Maps</option>
+                        <option value="manuscripts">Manuscripts</option>
+                        <option value="websites">Websites</option>
+                        <option value="notated-music">Printed Music</option>
+                    </select>
+                    <br/>
+                    <button>Submit</button>
+                </form>
+            </div>
+
             <br/>
-            <select
-                className="formatDropdown"
-                value={format}
-                onChange={event => {
-                    event.preventDefault();
-                    setFormat(event.target.value);
-                }}>
-                <option>Select media format</option>
-                <option value="photos">Photos</option>
-                <option value="audio">Audio</option>
-                <option value="film-and-videos">Film/Videos</option>
-                <option value="newspapers">Newspapers</option>
-                <option value="maps">Maps</option>
-                <option value="manuscripts">Manuscripts</option>
-                <option value="websites">Websites</option>
-                <option value="notated-music">Printed Music</option>
-            </select>
-            <br/>
-            <button>Submit</button>
-        </form>
 
-        <br/>
+            <div className="resultsDiv">
+                {results.map((result, index) => {
+                    return (
+                            <Results
+                                className="singleResult" 
+                                key={index}
+                                title={result.title}
+                                description={result.description}
+                                image={result.image_url[0]}
+                                url={result.url}
+                            />
+                    )
+                })}
+            </div>
 
-        <div className="resultsDiv">
-            {results.map((result, index) => {
-                return (
-                        <Results
-                            className="singleResult" 
-                            key={index}
-                            title={result.title}
-                            description={result.description}
-                            image={result.image_url[0]}
-                        />
-                )
-            })}
         </div>
-
+        {/* end App */}
 
     </div>
-    // end App
+    // end parallax
   );
 }
 

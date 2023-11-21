@@ -11,6 +11,7 @@ const Results = (props) => {
             <p>{props.description}</p>
             <img src={props.image} alt={props.title} />
             <br/>
+            <p><a href={props.url} target="_blank" rel="noopener noreferrer">Learn more</a></p>
         </content>
 
     )
