@@ -22,43 +22,58 @@ function App() {
   return (
     <div className="App">
 
-        <header><h1>Library of Congress</h1></header>
+        <div className="header">
+            <h1 className="masterTitle">Search the Library of Congress</h1>
 
-        <form 
-            className="searchForm"
-            onSubmit={event => {
-                event.preventDefault();
-                imageSearch();
-            }}>
+            <p className="headerIntro">Powered by the <a href="https://libraryofcongress.github.io/data-exploration/" target="_blank">LOC API</a><br />
+            No-frills portal to search the Library of Congress's collection.<br />
+            Returns first 150 results, when available.<br />
+            Search by either a specific format OR all formats.</p>
+        </div>
 
-            <input 
-                value={query}
-                onChange={event => {
+        <div className="searchFormDiv">
+            <form 
+                title="Enter a search term"
+                className="searchForm"
+                onSubmit={event => {
                     event.preventDefault();
-                    setQuery(event.target.value);
-                }}
-            />
-            <br/>
-            <select
-                className="formatDropdown"
-                value={format}
-                onChange={event => {
-                    event.preventDefault();
-                    setFormat(event.target.value);
+                    imageSearch();
                 }}>
-                <option>Select media format</option>
-                <option value="photos">Photos</option>
-                <option value="audio">Audio</option>
-                <option value="film-and-videos">Film/Videos</option>
-                <option value="newspapers">Newspapers</option>
-                <option value="maps">Maps</option>
-                <option value="manuscripts">Manuscripts</option>
-                <option value="websites">Websites</option>
-                <option value="notated-music">Printed Music</option>
-            </select>
-            <br/>
-            <button>Submit</button>
-        </form>
+
+                <h2>Enter a search term:</h2>
+                <input 
+                    title="Select media format"
+                    value={query}
+                    onChange={event => {
+                        event.preventDefault();
+                        setQuery(event.target.value);
+                    }}
+                />
+                <br/>
+
+                <h2>Option 1: Select media format</h2>
+                <select
+                    title="Select media format"
+                    className="formatDropdown"
+                    value={format}
+                    onChange={event => {
+                        event.preventDefault();
+                        setFormat(event.target.value);
+                    }}>
+                    <option>Select media format</option>
+                    <option value="photos">Photos</option>
+                    <option value="audio">Audio</option>
+                    <option value="film-and-videos">Film/Videos</option>
+                    <option value="newspapers">Newspapers</option>
+                    <option value="maps">Maps</option>
+                    <option value="manuscripts">Manuscripts</option>
+                    <option value="websites">Websites</option>
+                    <option value="notated-music">Printed Music</option>
+                </select>
+                <br/>
+                <button>Submit</button>
+            </form>
+        </div>
 
         <br/>
 
