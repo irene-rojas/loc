@@ -8,8 +8,8 @@ const Results = (props) => {
 
             <strong>{props.title}</strong>
             <br/>
-            <p>{props.description}</p>
             <img src={props.image} alt={props.title} />
+            <p>{props.description}</p>
             <br/>
             <p><a href={props.url} target="_blank" rel="noopener noreferrer">Learn more</a></p>
         </div>
