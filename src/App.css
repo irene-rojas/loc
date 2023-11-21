@@ -1,84 +1,47 @@
-.App {
-    /* margin: 0 auto; */
-    text-align: center;
-    display: grid;
-    grid-template-rows: 100px repeat(4, auto);
-    grid-template-columns: 1fr;
-    height: 100vh;
-}
-
 .header {
-    grid-row: 1/2;
-    grid-column: 1/-1;
-    text-align: center;
     border-top: 5px solid #fc4c02;
-    /* background-color: lightblue; */
 }
-
-.searchForm {
-    grid-row: 2/3;
-    grid-column: 1/-1;
-    padding: 5px;
-}
-
 
 /* mobile */
-
-.resultsDiv {
-    /* in App */
-    grid-row: 3/4;
-    grid-column: repeat(6, auto);
-    /* in resultsDiv */
-    display: grid;
-    grid-template-rows: repeat(5, auto);
-    grid-template-columns: repeat(5, auto);
+@media (max-width: 768px) {
+    .resultsDiv {
+        /* in App */
+        grid-row: 3/4;
+        grid-column: repeat(6, auto);
+        /* in resultsDiv */
+        display: grid;
+        grid-template-rows: repeat(5, auto);
+        grid-template-columns: repeat(5, auto);
+    }
+    
+    .singleResult {
+        grid-row: 1/2;
+        grid-column: 1/2;
+        border: 1px solid black;
+    }
 }
 
-.singleResult {
-    grid-row: 1/2;
-    grid-column: 1/2;
-    border: 1px solid black;
-}
-
+/* start desktop */
 @media (min-width: 769px) {
     .App {
         text-align: center;
         height: 100vh;
         display: grid;
-        grid-template-rows: 200px 1fr;
-        /* 200px = header */
-        /* 1fr = search form */
+        grid-template-rows: 150px 1fr;
+        /* 150px = header */
+        /* 1fr = search form div */
         grid-template-columns: 75px auto 75px;
-        scroll-snap-type: y mandatory;
     }
 
     .header {
         /* in App */
         grid-row: 1/2;
         grid-column: 1/-1;
-        /* in header */
-        display: grid;
-        grid-template-rows: repeat(2, auto);
-        grid-template-columns: 1fr;
         text-align: center;
         top: 0px;
         position: fixed;
         padding: 5px;
         width: 100%;
-    }
-
-    .masterTitle {
-        /* in header */
-        grid-row: 1/2;
-        grid-column: 1/-1;
-        text-align: center;
-    }
-
-    .headerIntro {
-        /* in header */
-        grid-row: 2/3;
-        grid-column: 1/-1;
-        text-align: center;
     }
 
     .searchFormDiv {
@@ -87,6 +50,7 @@
         grid-column: 2/5;
         padding-top: 50px;
         scroll-snap-align: center;
-        padding-top: 5px;
+        padding-top: 10px;
     }
 }
+/* end desktop */
