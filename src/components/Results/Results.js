@@ -4,7 +4,7 @@ import "./Results.css";
 const Results = (props) => {
     return (
 
-        <div className="resultsContent">
+        <div className="resultsContent card">
 
             <strong>{props.title}</strong>
             <br/>

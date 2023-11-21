@@ -30,7 +30,7 @@ function App() {
                 <p>Powered by the <a href="https://libraryofcongress.github.io/data-exploration/" target="_blank" rel="noopener noreferrer">LOC API</a><br />
                 No-frills portal to search the Library of Congress's collection.<br />
                 Returns first 150 results, when available.<br />
-                Search by either a specific format OR all formats.</p>
+                Search by a specific format.</p>
             </div>
 
             <div className="searchFormDiv">
@@ -73,7 +73,7 @@ function App() {
                         <option value="notated-music">Printed Music</option>
                     </select>
                     <br/>
-                    <button>Submit</button>
+                    <button className="btn btn-primary">Submit</button>
                 </form>
             </div>
 
