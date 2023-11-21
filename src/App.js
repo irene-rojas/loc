@@ -13,7 +13,7 @@ function App() {
     const imageSearch = () => {
         Axios.get(`https://www.loc.gov/${format}/?q=${query}&fo=json`)
         .then(res => {
-            setResults(res.data.results);
+            setResults(res.data.results.slice(0,150));
             console.log(res.data.results);
         });
     };
@@ -86,6 +86,7 @@ function App() {
                             title={result.title}
                             description={result.description}
                             image={result.image_url[0]}
+                            url={result.url}
                         />
                 )
             })}
