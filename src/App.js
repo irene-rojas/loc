@@ -33,7 +33,6 @@ function App() {
 
         <div className="searchFormDiv">
             <form 
-                title="Enter a search term"
                 className="searchForm"
                 onSubmit={event => {
                     event.preventDefault();
@@ -42,7 +41,8 @@ function App() {
 
                 <h2>Enter a search term:</h2>
                 <input 
-                    title="Select media format"
+                    className="searchTerm"
+                    title="Enter a search term"
                     value={query}
                     onChange={event => {
                         event.preventDefault();

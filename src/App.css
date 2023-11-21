@@ -27,8 +27,8 @@
         text-align: center;
         height: 100vh;
         display: grid;
-        grid-template-rows: 150px 1fr;
-        /* 150px = header */
+        grid-template-rows: 175px 1fr;
+        /* 175px = header */
         /* 1fr = search form div */
         grid-template-columns: 1fr;
     }
@@ -48,9 +48,7 @@
         /* in App */
         grid-row: 2/3;
         grid-column: 1/-1;
-        padding-top: 50px;
-        scroll-snap-align: center;
-        padding-top: 10px;
+        /* padding-top: 10px; */
     }
 }
 /* end desktop */
