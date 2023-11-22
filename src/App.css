@@ -46,8 +46,8 @@ button {
         text-align: center;
         height: 100vh;
         display: grid;
-        grid-template-rows: 175px repeat(2, 1fr);
-        /* 175px = header */
+        grid-template-rows: 200px repeat(2, 1fr);
+        /* 200px = header */
         /* 1fr = search form div */
         /* 1fr = result div */
         grid-template-columns: 10px 1fr 10px;
