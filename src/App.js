@@ -29,66 +29,83 @@ function App() {
         <div className="App">
 
             <div className="header">
-                <h1>Search the Library of Congress</h1>
+                <div className="headerText">
+                    <h1>Search the Library of Congress</h1>
 
-                <p>Powered by the <a href="https://libraryofcongress.github.io/data-exploration/" target="_blank" rel="noopener noreferrer">LOC API</a><br />
-                No-frills portal to search the Library of Congress's collection.<br />
-                Returns first 150 results, when available.<br />
-                Search by a specific format.</p>
-            </div>
+                    <p>Powered by the <a href="https://libraryofcongress.github.io/data-exploration/" target="_blank" rel="noopener noreferrer">LOC API</a><br />
+                    No-frills portal to search the Library of Congress's collection.<br />
+                    Returns first 150 results, when available.<br />
+                    Search by a specific format.</p>
 
-            <div className="searchFormDiv">
-                <form 
-                    className="searchForm"
-                    onSubmit={event => {
-                        event.preventDefault();
-                        imageSearch();
-                    }}>
+                </div>
 
-                    <h2>Enter a search term:</h2>
-                    <input 
-                        className="searchTerm"
-                        title="Enter a search term"
-                        value={query}
-                        onChange={event => {
+                <div className="searchFormDiv">
+                    <form 
+                        className="searchForm"
+                        onSubmit={event => {
                             event.preventDefault();
-                            setQuery(event.target.value);
-                        }}
-                    />
-                    <br/>
-
-                    <h2>Select media format</h2>
-                    <select
-                        title="Select media format"
-                        className="formatDropdown"
-                        value={format}
-                        onChange={event => {
-                            event.preventDefault();
-                            setFormat(event.target.value);
+                            imageSearch();
                         }}>
-                        <option>Select media format</option>
-                        <option value="photos">Photos</option>
-                        <option value="audio">Audio</option>
-                        <option value="film-and-videos">Film/Videos</option>
-                        <option value="newspapers">Newspapers</option>
-                        <option value="maps">Maps</option>
-                        <option value="manuscripts">Manuscripts</option>
-                        <option value="websites">Websites</option>
-                        <option value="notated-music">Printed Music</option>
-                    </select>
-                    <br/>
-                    {loading === false &&
-                        <button className="btn btn-primary">Submit</button>}
-                    
 
-                    {loading === true &&
-                        <button class="btn btn-primary" type="button" disabled>
-                        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-                        <span class="visually-hidden" role="status">Loading...</span>
-                      </button>}
-                    
-                </form>
+                        <table role="presentation">
+                            <tr>
+                                <td>
+                                    <p className="searchTextEntry"><strong>Enter a search term:</strong>
+                                    <br />
+                                    <input 
+                                        className="searchTerm"
+                                        title="Enter a search term"
+                                        value={query}
+                                        onChange={event => {
+                                            event.preventDefault();
+                                            setQuery(event.target.value);
+                                        }}
+                                        />
+                                    </p>
+                                </td>
+                            
+                                <td>
+                                    <p className="formatSelectEntry"><strong>Select media format:</strong>
+                                    <br />
+                                        <select
+                                            title="Select media format"
+                                            className="formatDropdown"
+                                            value={format}
+                                            onChange={event => {
+                                                event.preventDefault();
+                                                setFormat(event.target.value);
+                                            }}>
+                                            <option>Select media format</option>
+                                            <option value="photos">Photos</option>
+                                            <option value="audio">Audio</option>
+                                            <option value="film-and-videos">Film/Videos</option>
+                                            <option value="newspapers">Newspapers</option>
+                                            <option value="maps">Maps</option>
+                                            <option value="manuscripts">Manuscripts</option>
+                                            <option value="websites">Websites</option>
+                                            <option value="notated-music">Printed Music</option>
+                                        </select>
+                                    </p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2">
+                                    {loading === false &&
+                                        <button className="btn btn-primary">Submit</button>}
+
+                                    {loading === true &&
+                                        <button class="btn btn-primary" type="button" disabled>
+                                        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                                        <span class="visually-hidden" role="status">Loading...</span>
+                                    </button>}
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
             </div>
+
 
             <div className="resultsDiv">
                 {results.map((result, index) => {
