@@ -57,6 +57,10 @@ button {
         /* in App */
         grid-row: 1/2;
         grid-column: 1/4;
+        /* in header */
+        display: grid;
+        grid-template-rows: repeat(2, auto);
+        grid-template-columns: 10px repeat(2, 1fr) 10px;
         text-align: center;
         top: 0px;
         position: fixed;
@@ -66,10 +70,26 @@ button {
         z-index: 100;
     }
 
+    .headerText {
+        /* in header */
+        grid-row: 1/2;
+        grid-column: 2/4;
+    }
+
     .searchFormDiv {
         /* in App */
         grid-row: 2/3;
-        grid-column: 2/3;
+        grid-column: 2/4;
+        /* in searchFormDiv */
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .searchForm {
+        /* in searchFormDiv */
+        grid-row: 1/2;
+        grid-column: 2/4;
     }
 
     .resultsDiv {
